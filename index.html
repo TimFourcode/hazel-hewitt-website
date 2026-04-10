@@ -125,6 +125,19 @@
     .vignette-overlay {
       background: radial-gradient(circle, transparent 20%, #0a1128 100%);
     }
+    .hero-bg-image {
+      background-image: url('assets/images/book-cover.jpg');
+      background-size: cover;
+      background-position: center 20%;
+      filter: blur(30px) brightness(0.35) saturate(1.4);
+      opacity: 0.5;
+      mix-blend-mode: luminosity;
+      transform: scale(1.15); /* prevent blur edge artifacts */
+    }
+    .fog-overlay {
+      background: radial-gradient(ellipse at 50% 40%, rgba(242,202,80,0.06) 0%, transparent 60%),
+                  linear-gradient(180deg, rgba(10,17,40,0.3) 0%, transparent 30%, transparent 70%, rgba(10,17,40,0.8) 100%);
+    }
     .tonal-shift {
       background: linear-gradient(180deg, #0a1128 0%, #0d1736 100%);
     }
@@ -167,8 +180,9 @@
 
   <!-- Hero Section -->
   <header id="hero" class="relative min-h-screen flex flex-col items-center overflow-hidden pt-28 pb-32">
-    <div class="absolute inset-0 z-0">
-      <div class="absolute inset-0 bg-gradient-to-b from-[#0a1128] via-transparent to-[#0a1128]"></div>
+    <div class="absolute inset-0 z-0 overflow-hidden">
+      <div class="absolute inset-0 hero-bg-image"></div>
+      <div class="absolute inset-0 fog-overlay"></div>
       <div class="absolute inset-0 vignette-overlay"></div>
     </div>
     <div class="relative z-10 w-full max-w-screen-2xl mx-auto px-8 flex flex-col items-center">
